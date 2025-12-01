@@ -17,8 +17,8 @@ body{
 .card{
   display: flex;
   justify-content: space-between;
-  width: 50vh;
-  height: 50vh;
+  width: 45vh;
+  height: 70vh;
   background-color: white; /*Makes the card visible */
   border-radius: 10px;
   border: 1px solid black;
@@ -34,19 +34,52 @@ Example of how to use box-shadow:
 means: 5px right, 5px down, 10px blur, dark color 
 */
 
+/* 
+#first ::before{
+    content: "A";
+    font-size: 2rem;
+}
+
+*/
+
 .left{
   align-items:center;
   align-self: flex-start;
-
+  font-size: 35px;
+  position: relative;
+  top: 20px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .right{
   align-items: center;
   align-self: flex-end;
+  position: relative;
+  bottom: 20px;
+  right: 10px;
+  font-size: 35px;
+  transform: rotate(180deg);
 }
 
 .middle{
   display: flex;
   flex-direction: column;
   align-self: center;
+  position: relative;
+  font-size: 70px;
+  right: 10px;
+}
+
+#playing-cards .card:first-child .left::before{
+    content: "A";
+}
+
+#playing-cards .card:nth-child(2) .left::before{
+    content: "2";
+}
+
+#playing-cards .card:nth-child(3) .middle{
+    transform: scaleX(-1);
 }
