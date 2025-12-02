@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -80,6 +81,10 @@ means: 5px right, 5px down, 10px blur, dark color
     content: "2";
 }
 
-#playing-cards .card:nth-child(3) .middle{
-    transform: scaleX(-1);
+#playing-cards .card:nth-child(2) .middle:nth-child(3){
+    transform: rotate(180deg);
 }
+
+
+
+
