@@ -86,5 +86,16 @@ means: 5px right, 5px down, 10px blur, dark color
 }
 
 
+/* 
+.card:nth-child(2) .middle:nth-child(2) {
+  position: absolute;
+  top: 35%; /* First club - adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 70px;
+}
+
+
+*/
 
 
