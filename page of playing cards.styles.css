@@ -67,51 +67,57 @@ means: 5px right, 5px down, 10px blur, dark color
 .middle{
   display: flex;
   flex-direction: column;
-  align-self: center;
-  position: relative;
+  align-items: center; /* center horizontally */
+  justify-content: center;  /* center vertically */
+   /* gap: 0.15em; small vertical spacing */
+  position: static;
   font-size: 70px;
-  right: 10px;
+  right: 0;
 }
+
 
 #playing-cards .card:first-child .left::before{
     content: "A";
+    font-size: 2rem;
 }
+
+#playing-cards .card:first-child .right::before{
+    content: "A";
+    font-size: 2rem;
+    display: block; /*ensure it's own inline element */
+    transform: translateY(1px); /* Move A on right down by 20 */
+
+}
+
 
 #playing-cards .card:nth-child(2) .left::before{
     content: "2";
+    font-size: 2rem;
 }
 
-#playing-cards .card:nth-child(2) .middle:nth-child(3){
-    transform: rotate(180deg);
+#playing-cards .card:nth-child(2) .right::before{
+    content: "2";
+    font-size: 2rem;
+    display: block; /*ensure it's own inline element */
+    transform: translateY(1px) translateX(4px); /* nudge down; nudge up; change value as needed */
+    
 }
 
+.middle .symbol:last-child{
+  transform: rotate(180deg); /*makes the lower symbol opposite */
+  display: block;
+  text-align: center;
 
-/* 
-
-.card:nth-child(2) .middle:nth-child(2) {
-  position: absolute;
-  top: 35%; /* First club - adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 70px;
-}
-*/
-
-
-/*
-
-.card:nth-child(2) .middle:nth-child(3) {
-  position: absolute;
-  top: 65%; /* Second club - adjust as needed */
-  left: 50%;
-  transform: translateX(-50%) rotate(180deg);
-  font-size: 70px;
 }
 
 
-*/
+/* Targets the middle pair to move it slightly upwards on the club card */
+#playing-cards .card:nth-child(2) .middle{
+  align-self: center; /* Keeps centered horizontally */
+  transform: translateY(-6%);/* nudge up; change as needed*/
+  transform: translateX(20%); /* nudge right; change as needed */
 
-
+}
 
 
 
