@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +11,8 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;  
+  gap: 20px;
+  
 }
 
 .card{
@@ -38,6 +40,7 @@ means: 5px right, 5px down, 10px blur, dark color
     content: "A";
     font-size: 2rem;
 }
+
 */
 
 .left{
@@ -79,7 +82,6 @@ means: 5px right, 5px down, 10px blur, dark color
     font-weight: bold;
 }
 
-
 #playing-cards .card:first-child .right::before{
     content: "A";
     font-size: 2rem;
@@ -87,6 +89,8 @@ means: 5px right, 5px down, 10px blur, dark color
     transform: translateY(1px); /* Move A on right down by 20 */
     font-weight: bold;
 }
+
+
 
 #playing-cards .card:nth-child(2) .left::before{
     content: "2";
@@ -117,6 +121,8 @@ means: 5px right, 5px down, 10px blur, dark color
   transform: translateX(20%); /* nudge right; change as needed */
 }
 
+
+
 /* Card 3 with heart symbols */
 /* 3 number on top left */
 #playing-cards .card:nth-child(3) .left::before{
@@ -125,6 +131,7 @@ means: 5px right, 5px down, 10px blur, dark color
   font-size: 2rem;
   font-weight: bold;
 }
+
 
 /* 3 number on bottom right */
 #playing-cards .card:nth-child(3) .right::before{
@@ -140,6 +147,11 @@ means: 5px right, 5px down, 10px blur, dark color
 /* Color of the 3rd card should be red */
 #playing-cards .card:nth-child(3){
   color: red;
+}
+
+/* Makes the 3rd heart symbol opposite*/
+#playing-cards .card:nth-child(3) .middle .symbol:nth-child(3){
+  transform: rotate(180deg); /*makes the lower symbol opposite */
 }
 
 
@@ -174,36 +186,33 @@ means: 5px right, 5px down, 10px blur, dark color
  because the general .middle rule sets display: flex, and 
  your more specific rule needs to forcefully override it 
  for this particular card.
- 
- 
  */
 
 
 #playing-cards .card:nth-child(4) .middle{
   display: flex;
-  flex-direction: row; /* ensure horizontal flow so wrap makes two per row */
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: wrap;         /* allow two rows */
   justify-content: center;
+  align-content: center;   /* center wrapped rows */
+  gap: 10px; /* gap between symbols */
   font-size: 60px;
-  gap: 6px 8px;
   padding: 0;
-  margin: 0;
-  width: 68%;
- 
-  /* controls when two-per-row wraps; tweak as needed */
-  
+  margin: 0 auto;
+  width: 60%;  /* tweak so two symbols fit per row */
+  max-width: 260px; /* optional: control wrap point */
 }
 
+
 #playing-cards .card:nth-child(4) .middle .symbol {
-  width: 50%; /* two symbols per row */
+  flex: 0 0 calc(50% - 4px); /* account for gap so two fit exactly */
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
-  line-height: 1; /* Ensure no extra line-height spacing */
-}
+  line-height: 1;
+} 
 
 
 /* make the bottom pair upside-down */
@@ -212,7 +221,6 @@ means: 5px right, 5px down, 10px blur, dark color
   transform: rotate(180deg);
   text-align: center;
 }
-
 
 
 /* Card 5 with 5 diamond symbols */
@@ -238,5 +246,4 @@ means: 5px right, 5px down, 10px blur, dark color
 #playing-cards .card:nth-child(5){
   color: red;
     }
-
 
