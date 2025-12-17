@@ -60,7 +60,7 @@ means: 5px right, 5px down, 10px blur, dark color
   position: relative;
   bottom: 20px;
   right: 10px;
-  font-size: 35px;
+font-size: 35px;
   transform: rotate(180deg);
 }
 
@@ -117,8 +117,7 @@ means: 5px right, 5px down, 10px blur, dark color
 /* Targets the middle pair to move it slightly upwards on the club card */
 #playing-cards .card:nth-child(2) .middle{
   align-self: center; /* Keeps centered horizontally */
-  transform: translateY(-6%);/* nudge up; change as needed*/
-  transform: translateX(20%); /* nudge right; change as needed */
+  transform: translateY(-6%) translateX(20%);/* nudge up; change as needed, nudge right; change as needed */
 }
 
 
@@ -191,27 +190,26 @@ means: 5px right, 5px down, 10px blur, dark color
 
 #playing-cards .card:nth-child(4) .middle{
   display: flex;
-  flex-wrap: wrap;         /* allow two rows */
+  flex-direction: row; /* ensure horizontal flow so wrap makes two per row */
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  align-content: center;   /* center wrapped rows */
-  gap: 10px; /* gap between symbols */
   font-size: 60px;
+  gap: 6px 8px;
   padding: 0;
-  margin: 0 auto;
-  width: 60%;  /* tweak so two symbols fit per row */
-  max-width: 260px; /* optional: control wrap point */
+  margin: 0;
+  width: 68%;
+  /* controls when two-per-row wraps; tweak as needed */
 }
 
-
 #playing-cards .card:nth-child(4) .middle .symbol {
-  flex: 0 0 calc(50% - 4px); /* account for gap so two fit exactly */
-  box-sizing: border-box;
+  width: 50%; /* two symbols per row */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: 1; /* Ensure no extra line-height spacing */
 } 
 
 
@@ -245,7 +243,34 @@ means: 5px right, 5px down, 10px blur, dark color
 /* Color of the 5th card should be red */
 #playing-cards .card:nth-child(5){
   color: red;
-    }
+  }
+
+#playing-cards .card:nth-child(5) .middle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /*Space rows evenly */
+  align-items: center;
+  width: 80%;
+  height: 70%;
+  font-size: 50px;
+  padding: 15px 0; /*Add some paddig at top and bottom */
+}
+
+/*Create rows for the symbols */
+#playing-cards .card:nth-child(5) .middle .symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#playing-cards .card:nth-child(5) .middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+}
 
 
 
