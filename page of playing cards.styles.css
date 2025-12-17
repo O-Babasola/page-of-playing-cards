@@ -257,20 +257,27 @@ font-size: 35px;
 }
 
 /*Create rows for the symbols */
-#playing-cards .card:nth-child(5) .middle .symbol {
+#playing-cards .card:nth-child(5) .middle .symbol:nth-child(5) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#playing-cards .card:nth-child(5) .middle {
+
+#playing-cards .card:nth-child(5) .middle{
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  font-size: 50px;
+  flex-direction: row; /* ensure horizontal flow so wrap makes two per row */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  gap: 6px 8px;
+  padding: 0;
+  margin: 0;
+  width: 68%;
+  /* controls when two-per-row wraps; tweak as needed */
 }
+
 
 
 
