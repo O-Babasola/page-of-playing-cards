@@ -244,6 +244,7 @@ means: 5px right, 5px down, 10px blur, dark color
 
 /* Color of the 5th card should be red */
 #playing-cards .card:nth-child(5){
-  color: red;
+  color: pink;
     }
+
 
