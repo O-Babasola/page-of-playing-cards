@@ -4,6 +4,7 @@
 
 body{
   background-color:#D8BFD8;
+  min-height: 100vh;
 }
 
 #playing-cards{
@@ -11,7 +12,6 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  
 }
 
 .card{
@@ -23,6 +23,7 @@ body{
   border-radius: 10px;
   border: 1px solid black;
   box-shadow: 10px 0px 4px rgba(0, 0, 0, 0.2); /* Card shadow horizontal, vertical, blur, spread, color, inset*/
+  padding: 10px;
 }
 
 /*  
@@ -46,32 +47,28 @@ means: 5px right, 5px down, 10px blur, dark color
   align-items:center;
   align-self: flex-start;
   font-size: 35px;
-  position: relative;
-  top: 20px;
-  left: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .right{
-  align-items: center;
-  align-self: flex-end;
-  position: relative;
-  bottom: 20px;
-  right: 10px;
-font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end; /* This aligns at end*/
+  font-size: 35px;
   transform: rotate(180deg);
 }
 
 .middle{
   display: flex;
+  align-self: center;
   flex-direction: column;
   align-items: center; /* center horizontally */
   justify-content: center;  /* center vertically */
    /* gap: 0.15em; small vertical spacing */
   position: static;
   font-size: 70px;
-  right: 0;
+  flex: 1; /* Take available space*/
 }
 
 
@@ -90,13 +87,20 @@ font-size: 35px;
 }
 
 
-
 #playing-cards .card:nth-child(2) .left::before{
     content: "2";
     font-size: 2rem;
     font-weight: bold;
 }
 
+
+#playing-cards .card:nth-child(2) .right::before{
+    content: "2";
+    font-size: 2rem;
+    display: block; /*ensure it's own inline element */
+    transform: translateY(1px) translateX(4px); /* nudge down; nudge up; change value as needed */
+    font-weight: bold;
+}
 
 #playing-cards .card:nth-child(2) .right::before{
     content: "2";
@@ -116,8 +120,9 @@ font-size: 35px;
 /* Targets the middle pair to move it slightly upwards on the club card */
 #playing-cards .card:nth-child(2) .middle{
   align-self: center; /* Keeps centered horizontally */
-  transform: translateY(-6%) translateX(20%);/* nudge up; change as needed, nudge right; change as needed */
+  transform: translateY(-6%);/* nudge up; change as needed*/
 }
+
 
 
 
@@ -189,16 +194,11 @@ font-size: 35px;
 
 #playing-cards .card:nth-child(4) .middle{
   display: flex;
-  flex-direction: row; /* ensure horizontal flow so wrap makes two per row */
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-  gap: 6px 8px;
-  padding: 0;
-  margin: 0;
-  width: 68%;
-  /* controls when two-per-row wraps; tweak as needed */
+  flex-direction: column; /* Still column as required */
+  flex-wrap: nowrap; /* Allow wrapping within the column */
+  height: 80%;
+  justify-content: space-around;
+   transform: translateY(-5%);
 }
 
 #playing-cards .card:nth-child(4) .middle .symbol {
@@ -265,7 +265,7 @@ font-size: 35px;
 
 #playing-cards .card:nth-child(5) .middle{
   display: flex;
-  flex-direction: row; /* ensure horizontal flow so wrap makes two per row */
+  flex-direction: column; /* ensure horizontal flow so wrap makes two per row */
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -276,6 +276,7 @@ font-size: 35px;
   width: 68%;
   /* controls when two-per-row wraps; tweak as needed */
 }
+
 
 
 
